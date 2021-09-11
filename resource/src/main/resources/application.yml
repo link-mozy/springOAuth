@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    platform: mariadb
+    drivateClassNam: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb:failover://127.0.0.1:3306/test
+    username: root
+    password: myM4ri4DB!
+    jpa:
+      database-platform: org.hibernate.dialect.MariaDBDialect
+      properties.hibernate.hbm2ddl.auto: update
+      showSql: true
+
+security:
+  oauth2:
+    client:
+      client-id: testClientId
+      client-secret: testSecret
+    resource:
+      token-info-uri: http://localhost:8081/oauth/check_token
